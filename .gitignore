@@ -1,0 +1,9 @@
+# Node Modules
+/node_modules
+
+# Javascript and Source Maps
+/src/**/*.js
+/src/**/*.map
+
+# Build files
+build/*

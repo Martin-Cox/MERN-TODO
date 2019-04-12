@@ -1,0 +1,24 @@
+{
+	"defaultSeverity": "error",
+	"extends": [
+		"tslint:recommended"
+	],
+	"jsRules": {},
+	"rules": {
+		"indent": [ true, "tabs" ],
+		"one-line": [ false ],
+		"no-console": [ false ],
+		"variable-name": [ true, "ban-keywords", "check-format", "allow-leading-underscore" ],
+		"trailing-comma": [
+			true,
+			{
+				"multiline": "never",
+				"singleline": "never"
+			}
+		],
+		"no-var-requires": false,
+		"object-literal-sort-keys": false,
+		"max-classes-per-file": [true, 2]
+	},
+	"rulesDirectory": []
+}

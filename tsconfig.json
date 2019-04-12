@@ -1,0 +1,25 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"noImplicitAny": false,
+		"noEmitOnError": true,
+		"removeComments": false,
+		"sourceMap": true,
+		"target": "es2018",
+		"module": "amd",
+		"moduleResolution": "node",
+		"declaration": false,
+		"paths": {
+			"*": [ "src/*" ]
+		}
+	},
+	"compileOnSave": true,
+	"exclude": [
+		"node_modules",
+		"vendor"
+	],
+	"types": [
+		"chrome",
+		"node"
+	]
+}

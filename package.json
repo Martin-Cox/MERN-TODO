@@ -1,0 +1,33 @@
+{
+  "name": "simplewiki",
+  "version": "0.0.1",
+  "description": "A simple self-hosted wiki site",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "lint": "tslint -c tslint.json src/**/*.ts",
+    "test": "npm install --dev && npm run build && npm run lint",
+    "build": "npm run build:js && npm run build:css",
+    "build:js": ".\\node_modules\\.bin\\webpack",
+    "build:js:watch": ".\\node_modules\\.bin\\webpack --watch",
+    "build:css": ".\\node_modules\\.bin\\node-sass .\\src\\main\\main.scss -o .\\build\\styles",
+    "build:css:watch": ".\\node_modules\\.bin\\node-sass -w .\\src -o .\\build\\styles"
+  },
+  "author": "Martin Cox",
+  "license": "MIT",
+  "dependencies": {
+    "mongodb": "^3.2.3",
+    "yargs": "^13.2.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "node-sass": "^4.11.0",
+    "tslint": "^5.15.0",
+    "typescript": "^3.4.3",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
+}

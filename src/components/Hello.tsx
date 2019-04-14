@@ -1,16 +1,21 @@
 import * as React from "react";
 
-export interface HelloProperties {
-	name?: string
+export interface HelloProps {
+	name: string
 }
 
-export class Hello extends React.Component<HelloProperties, { name: "" }> {
+/** A simple component that greets you. */
+export class Hello extends React.Component<HelloProps, { name: string }> {
 	/**
 	 * Creates a Hello component.
-	 * @param properties The properties.
+	 * @param props The properties.
 	 */
-	public constructor(properties: HelloProperties) {
-		super(properties);
+	public constructor(props: HelloProps) {
+		super(props);
+		this.state = { name: this.props.name };
+
+		// TODO: Investigate ways to auto-bind methods.
+		this.onChange = this.onChange.bind(this);
 	}
 
 	/**
@@ -18,7 +23,19 @@ export class Hello extends React.Component<HelloProperties, { name: "" }> {
 	 */
 	public render(): React.ReactNode {
 		return (
-			<h1>Hello World!</h1>
+			<form>
+				<h1>Hello {this.state.name}!</h1>
+				<label htmlFor="name">Name: </label>
+				<input
+					id="name"
+					onChange={this.onChange}
+					value={this.state.name}
+				/>
+			</form>
 		)
+	}
+
+	public onChange(event: any): void {
+		this.setState({ name: event.target.value });
 	}
 }

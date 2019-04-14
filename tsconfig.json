@@ -13,7 +13,8 @@
 		"paths": {
 			"*": [ "src/*" ]
 		},
-		"lib": ["es2018", "dom"]
+		"lib": ["es2018", "dom"],
+		"experimentalDecorators": true
 	},
 	"compileOnSave": true,
 	"exclude": [

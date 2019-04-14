@@ -1,3 +1,5 @@
+import boundMethod from "autobind-decorator";
+
 import * as React from "react";
 
 export interface HelloProps {
@@ -13,9 +15,6 @@ export class Hello extends React.Component<HelloProps, { name: string }> {
 	public constructor(props: HelloProps) {
 		super(props);
 		this.state = { name: this.props.name };
-
-		// TODO: Investigate ways to auto-bind methods.
-		this.onChange = this.onChange.bind(this);
 	}
 
 	/**
@@ -39,6 +38,7 @@ export class Hello extends React.Component<HelloProps, { name: string }> {
 	 * Handles input change.
 	 * @param event The event.
 	 */
+	@boundMethod
 	public onChange(event: React.ChangeEvent<HTMLInputElement>): void {
 		this.setState({ name: event.target.value });
 	}

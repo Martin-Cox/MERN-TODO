@@ -8,10 +8,12 @@
 		"target": "es2018",
 		"module": "amd",
 		"moduleResolution": "node",
+		"jsx": "react",
 		"declaration": false,
 		"paths": {
 			"*": [ "src/*" ]
-		}
+		},
+		"lib": ["es2018", "dom"]
 	},
 	"compileOnSave": true,
 	"exclude": [

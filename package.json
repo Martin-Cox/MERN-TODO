@@ -16,7 +16,10 @@
   "author": "Martin Cox",
   "license": "MIT",
   "dependencies": {
+    "@types/react-dom": "^16.8.4",
     "mongodb": "^3.2.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "yargs": "^13.2.2"
   },
   "devDependencies": {

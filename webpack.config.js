@@ -1,21 +1,18 @@
-var path = require("path");
+const path = require("path");
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	context: path.resolve(__dirname, "./src"),
+	devtool: "inline-source-map",
 	entry: {
 		wiki: "./main/Main",
 	},
-	output: {
-		filename: "main.js",
-		path: path.resolve(__dirname, "build")
-	},
-	resolve: {
-		alias: {
-			"jquery": path.resolve(__dirname, "./node_modules/jquery/dist/jquery.min.js")
-		}
-	},
 	module: {
 		rules: [
+			{
+				test: /\.tsx?$/,
+				loader: 'awesome-typescript-loader'
+			},
 			{
 				test: /\.js$/,
 				include: path.resolve(__dirname, "./src/*"),
@@ -35,5 +32,20 @@ module.exports = {
 			}
 		]
 	},
-	devtool: "inline-source-map"
+	output: {
+		filename: "main.js",
+		path: path.resolve(__dirname, "build")
+	},
+	
+	plugins: [
+		new CopyPlugin([
+			{ from: 'main/index.html', to: '../build' },
+		]),
+	],
+	resolve: {
+		alias: {
+			"jquery": path.resolve(__dirname, "./node_modules/jquery/dist/jquery.min.js")
+		},
+		extensions: ['.ts', '.tsx', '.js', '.jsx']
+	},
 };

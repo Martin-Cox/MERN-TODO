@@ -8,10 +8,11 @@
     "lint": "tslint -c tslint.json src/**/*.ts",
     "test": "npm install --dev && npm run build && npm run lint",
     "build": "npm run build:js && npm run build:css",
+    "build:watch": "concurrently \"npm:build:js:watch\" \"npm:build:css:watch\" \"npx serve\"",
     "build:js": ".\\node_modules\\.bin\\webpack",
     "build:js:watch": ".\\node_modules\\.bin\\webpack --watch",
-    "build:css": ".\\node_modules\\.bin\\node-sass .\\src\\main\\main.scss -o .\\build\\styles",
-    "build:css:watch": ".\\node_modules\\.bin\\node-sass -w .\\src -o .\\build\\styles"
+    "build:css": ".\\node_modules\\.bin\\node-sass .\\src\\main\\main.scss -o .\\build",
+    "build:css:watch": ".\\node_modules\\.bin\\node-sass -w .\\src\\main\\main.scss -o .\\build"
   },
   "author": "Martin Cox",
   "license": "MIT",
@@ -29,6 +30,7 @@
     "autobind-decorator": "^2.4.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.5",
+    "concurrently": "^4.1.0",
     "copy-webpack-plugin": "^5.0.2",
     "node-sass": "^4.11.0",
     "tslint": "^5.15.0",

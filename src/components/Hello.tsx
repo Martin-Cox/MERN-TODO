@@ -35,7 +35,11 @@ export class Hello extends React.Component<HelloProps, { name: string }> {
 		)
 	}
 
-	public onChange(event: any): void {
+	/**
+	 * Handles input change.
+	 * @param event The event.
+	 */
+	public onChange(event: React.ChangeEvent<HTMLInputElement>): void {
 		this.setState({ name: event.target.value });
 	}
 }

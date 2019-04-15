@@ -19,10 +19,12 @@
   "author": "Martin Cox",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "mongodb": "^3.2.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0",
     "yargs": "^13.2.2"
   },
   "devDependencies": {

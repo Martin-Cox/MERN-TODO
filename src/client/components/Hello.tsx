@@ -27,7 +27,7 @@ export class Hello extends React.Component<HelloProps, { name: string }> {
 				<label htmlFor="name">Name: </label>
 				<input
 					id="name"
-					onChange={this.onChange}
+					onChange={this._onChange}
 					value={this.state.name}
 				/>
 			</form>
@@ -39,7 +39,7 @@ export class Hello extends React.Component<HelloProps, { name: string }> {
 	 * @param event The event.
 	 */
 	@boundMethod
-	public onChange(event: React.ChangeEvent<HTMLInputElement>): void {
+	private _onChange(event: React.ChangeEvent<HTMLInputElement>): void {
 		this.setState({ name: event.target.value });
 	}
 }

@@ -5,7 +5,7 @@ module.exports = {
 	context: path.resolve(__dirname, "./src"),
 	devtool: "cheap-module-source-map",
 	entry: {
-		wiki: "./main/index.tsx",
+		client: "./client/main/index.tsx",
 	},
 	externals: {
 		"react": "React",
@@ -43,13 +43,10 @@ module.exports = {
 	
 	plugins: [
 		new CopyPlugin([
-			{ from: "main/index.html", to: "../build" },
+			{ from: "client/main/index.html", to: "../build" },
 		]),
 	],
 	resolve: {
-		alias: {
-			"jquery": path.resolve(__dirname, "./node_modules/jquery/dist/jquery.min.js")
-		},
 		extensions: [".ts", ".tsx", ".js", ".jsx"]
 	},
 };

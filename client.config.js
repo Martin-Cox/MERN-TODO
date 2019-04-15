@@ -2,10 +2,10 @@ const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-	context: path.resolve(__dirname, "./src"),
+	context: path.resolve(__dirname, "./src/client"),
 	devtool: "cheap-module-source-map",
 	entry: {
-		client: "./client/main/index.tsx",
+		client: "./main/index.tsx",
 	},
 	externals: {
 		"react": "React",
@@ -19,7 +19,7 @@ module.exports = {
 			},
 			{
 				test: /\.js$/,
-				include: path.resolve(__dirname, "./src/*"),
+				include: path.resolve(__dirname, "./src/client/*"),
 				use: [{
 					loader: "babel-loader",
 					options: {
@@ -29,7 +29,7 @@ module.exports = {
 			}, {
 				enforce: "pre",
 				test: /\.ts(x)?$/,
-				include: path.resolve(__dirname, "./src/*"),
+				include: path.resolve(__dirname, "./src/client/*"),
 				use: [{
 					loader: "source-map-loader"
 				}]
@@ -37,16 +37,15 @@ module.exports = {
 		]
 	},
 	output: {
-		filename: "main.js",
+		filename: "client.js",
 		path: path.resolve(__dirname, "build")
 	},
-	
 	plugins: [
 		new CopyPlugin([
-			{ from: "client/main/index.html", to: "../build" },
+			{ from: "main/index.html", to: "../build" },
 		]),
 	],
 	resolve: {
 		extensions: [".ts", ".tsx", ".js", ".jsx"]
-	},
+	}
 };

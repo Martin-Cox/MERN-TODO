@@ -6,7 +6,6 @@ Currently it's just a testbed for some React/Express stuff
 - Run "npm ci" in root directory
 - Run "npm run build:watch"
 - Run "node build/server.js"
-- Open http://localhost:8080/
 - Open http://localhost:5000/build/ in your browser to see the client and interact with it
 
 ## Known Issues

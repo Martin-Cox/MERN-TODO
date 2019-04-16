@@ -14,7 +14,7 @@
     "build:server:js": ".\\node_modules\\.bin\\webpack --config server.config.js",
     "build:server:js:watch": ".\\node_modules\\.bin\\webpack --watch --config server.config.js",
     "build:css": ".\\node_modules\\.bin\\node-sass .\\src\\client\\main\\main.scss -o .\\build",
-    "build:css:watch": ".\\node_modules\\.bin\\node-sass -w .\\src\\client\\main\\main.scss -o .\\build"
+    "build:css:watch": "npm run build:css && .\\node_modules\\.bin\\node-sass -w .\\src\\client\\main\\main.scss -o .\\build"
   },
   "author": "Martin Cox",
   "license": "MIT",

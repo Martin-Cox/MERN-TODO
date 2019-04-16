@@ -4,8 +4,8 @@ import * as React from "react";
 
 import { CounterStore } from "../store/CounterStore";
 
-import { observable } from 'mobx'
-import { observer } from 'mobx-react'
+import { observable } from "mobx";
+import { observer } from "mobx-react";
 
 export interface CounterProps {
 	store: CounterStore

@@ -5,7 +5,7 @@ module.exports = {
 	context: path.resolve(__dirname, "./src/client"),
 	devtool: "cheap-module-source-map",
 	entry: {
-		client: "./main/index.tsx",
+		client: "./main/Index.tsx",
 	},
 	externals: {
 		"react": "React",

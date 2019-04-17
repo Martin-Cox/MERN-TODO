@@ -4,7 +4,7 @@ import * as React from "react";
 
 import { CounterStore } from "../store/CounterStore";
 
-import { observable } from "mobx";
+import { computed } from "mobx";
 import { observer } from "mobx-react";
 
 export interface CounterProps {
@@ -14,18 +14,14 @@ export interface CounterProps {
 /** A component that interacts with a mobx store. */
 @observer
 export class Counter extends React.Component<CounterProps, CounterProps> {
-	/** The store. */
-	@observable
-	private _store: CounterStore;
+	@computed
+	private get _count(): number {
+		return this.props.store.count;
+	}
 
-	/**
-	 * Creates a Counter component.
-	 * @param props The properties.
-	 */
-	public constructor(props: CounterProps) {
-		super(props);
-
-		this._store = props.store;
+	@computed
+	private get _binary(): string {
+		return this.props.store.binary;
 	}
 
 	/**
@@ -34,8 +30,8 @@ export class Counter extends React.Component<CounterProps, CounterProps> {
 	public render(): React.ReactNode {
 		return (
 			<div className="counter">
-				<p>Value: {this._store.count}</p>
-				<p>Binary: {this._store.binary}</p>
+				<p>Value: {this._count}</p>
+				<p>Binary: {this._binary}</p>
 				<button onClick={this._resetCount}>
 					Reset the count!
 				</button>
@@ -48,6 +44,6 @@ export class Counter extends React.Component<CounterProps, CounterProps> {
 	 */
 	@boundMethod
 	private _resetCount(): void {
-		this._store.resetCount();
+		this.props.store.resetCount();
 	}
 }

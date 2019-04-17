@@ -13,9 +13,10 @@
     "build:client:js:watch": "webpack --watch --config client.config.js",
     "build:server:js": "webpack --config server.config.js",
     "build:server:js:watch": "webpack --watch --config server.config.js",
-    "start:database": "webpack --config startDatabase.config.js && node build/start.js",
     "build:css": "node-sass .\\src\\client\\main\\main.scss -o .\\build",
-    "build:css:watch": "npm run build:css && .node-sass -w .\\src\\client\\main\\main.scss -o .\\build"
+    "build:css:watch": "npm run build:css && .node-sass -w .\\src\\client\\main\\main.scss -o .\\build",
+    "database:start": "webpack --config startDatabase.config.js && node build/start.js",
+    "database:populate": "webpack --config populateDatabase.config.js && node build/populate.js"
   },
   "author": "Martin Cox",
   "license": "MIT",

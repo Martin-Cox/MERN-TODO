@@ -3,7 +3,8 @@ import * as fs from "fs-extra";
 
 const directory = "build/database";
 
-async function main(): Promise<void> {
+/** Starts the mongo database server. */
+function main(): void {
 	if (fs.existsSync(directory)) {
 		console.log("Removing existing directory");
 		fs.rmdirSync(directory);

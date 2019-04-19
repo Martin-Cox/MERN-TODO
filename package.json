@@ -15,8 +15,7 @@
     "build:server:js:watch": "webpack --watch --config server.config.js",
     "build:css": "node-sass .\\src\\client\\main\\main.scss -o .\\build",
     "build:css:watch": "npm run build:css && .node-sass -w .\\src\\client\\main\\main.scss -o .\\build",
-    "database:start": "webpack --config startDatabase.config.js && node build/start.js",
-    "database:populate": "webpack --config populateDatabase.config.js && node build/populate.js"
+    "start:database": "webpack --config startDatabase.config.js && node build/start.js"
   },
   "author": "Martin Cox",
   "license": "MIT",
@@ -29,8 +28,7 @@
     "mongodb": "^3.2.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.0",
-    "yargs": "^13.2.2"
+    "react-router-dom": "^5.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
@@ -41,6 +39,7 @@
     "@types/mongodb": "^3.1.23",
     "@types/react": "^16.8.13",
     "@types/react-dom": "^16.8.4",
+    "@types/yargs": "^13.0.0",
     "autobind-decorator": "^2.4.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.5",
@@ -50,6 +49,7 @@
     "tslint": "^5.15.0",
     "typescript": "^3.4.3",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0"
+    "webpack-cli": "^3.3.0",
+    "yargs": "^13.2.2"
   }
 }

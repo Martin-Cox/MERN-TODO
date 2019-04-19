@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 import * as child from "child_process";
 import * as fs from "fs-extra";
 import * as yargs from "yargs";
@@ -11,33 +13,13 @@ const args = yargs
 			description: "Whether the database is being installed for the first time (or if an existing installation should be overwritten).",
 			default: false
 		}
-	).option(
-		"directory",
-		{
-			alias: "d",
-			description: "The database installation directory.",
-			default: "C:\\Temp\\database"
-		}
-	).option(
-		"port",
-		{
-			alias: "p",
-			description: "The database server port.",
-			default: 27017
-		}
-	).option(
-		"name",
-		{
-			description: "The database name.",
-			default: "test"
-		}
 	)
 	.argv;
 
 const newInstall = args.new;
-const directory = args.directory;
-const port = args.port;
-const name = args.name;
+const directory = process.env.DATABASE_DIRECTORY;
+const port = process.env.DATABASE_PORT;
+const name = process.env.DATABASE_NAME;
 const serverUrl = `mongodb://localhost:${port}`
 
 if (newInstall) {

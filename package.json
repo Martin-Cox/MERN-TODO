@@ -1,7 +1,7 @@
 {
-  "name": "simplewiki",
+  "name": "mern-todo",
   "version": "0.0.1",
-  "description": "A simple self-hosted wiki site",
+  "description": "A TODO application built with MERN.",
   "main": "index.js",
   "private": true,
   "scripts": {

@@ -1,6 +1,6 @@
-# SimpleWiki
+# Overview
 
-Currently it's just a testbed for some React/Express/mongodb stuff
+A simple project investigating React, Mongo, Express, and Mobx.
 
 ## To run
 - Install mongodb from https://www.mongodb.com/download-center/community (not as a service)
@@ -10,3 +10,18 @@ Currently it's just a testbed for some React/Express/mongodb stuff
 - In a separate command line window run "npm run build:watch"
 - In a separate command line window run "node build/server.js"
 - Open http://localhost:5000/build/ in your browser to see the client and interact with it
+
+## TODO
+- Update test data to be in "TODO" format
+	- Title
+	- Description
+	- AssignedTo
+	- Deadline
+- Add express endpoint that requests that TODO data
+- Add express endpoint that inserts that TODO data
+- Investigate express middleware
+	- Database connection
+	- Logging
+- Add client store that stores the TODO data
+- Add client component that displays the TODO data
+- Add client component that updates the TODO data

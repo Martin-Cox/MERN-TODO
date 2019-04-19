@@ -14,12 +14,13 @@
     "build:server:js": "webpack --config server.config.js",
     "build:server:js:watch": "webpack --watch --config server.config.js",
     "build:css": "node-sass .\\src\\client\\main\\main.scss -o .\\build",
-    "build:css:watch": "npm run build:css && .node-sass -w .\\src\\client\\main\\main.scss -o .\\build",
+    "build:css:watch": "npm run build:css && node-sass -w .\\src\\client\\main\\main.scss -o .\\build",
     "start:database": "webpack --config startDatabase.config.js && node build/start.js"
   },
   "author": "Martin Cox",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",

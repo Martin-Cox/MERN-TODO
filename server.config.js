@@ -4,7 +4,7 @@ module.exports = {
 	context: path.resolve(__dirname, "./src/server"),
 	devtool: "cheap-module-source-map",
 	entry: {
-		client: "./components/Example.ts",
+		client: "./main/Main.ts",
 	},
 	module: {
 		rules: [

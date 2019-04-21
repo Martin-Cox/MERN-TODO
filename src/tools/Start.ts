@@ -68,7 +68,7 @@ async function populate(): Promise<void> {
 	console.log("Successfully created database");
 	console.log("Creating collection");
 	try {
-		collection = await database.createCollection("people");
+		collection = await database.createCollection("tasks");
 	} catch {
 		console.log("Failed to create collection");
 		return;
@@ -78,11 +78,15 @@ async function populate(): Promise<void> {
 	console.log("Inserting documents");
 	try {
 		await collection.insertMany([{
-			name: "Tom"
+			title: "Test Task #1",
+			description: "A test task",
+			owner: "Martin",
+			deadline: new Date(2020, 4, 3, 15)
 		}, {
-			name: "Dick"
-		}, {
-			name: "Harry"
+			title: "Test Task #2",
+			description: "Another test task",
+			owner: "Harry",
+			deadline: new Date(2022, 8, 2, 6)
 		}]);
 	} catch {
 		console.log("Failed to insert documents");
@@ -105,15 +109,14 @@ async function read(client?: mongodb.MongoClient): Promise<void> {
 		await client.connect();
 	}
 
-	console.log(name);
 	const database = client.db(name);
-	const collection = database.collection("people");
+	const collection = database.collection("tasks");
 
 	let result: any[] = [];
 
 	console.log("Finding document");
 	try {
-		result = await collection.find({ name: "Dick" }).toArray();
+		result = await collection.find({ title: "Test Task #1" }).toArray();
 	} catch {
 		console.log("Error finding document");
 		return;

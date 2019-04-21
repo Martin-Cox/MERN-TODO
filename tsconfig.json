@@ -5,15 +5,15 @@
 		"noEmitOnError": true,
 		"removeComments": false,
 		"sourceMap": true,
-		"target": "es2018",
-		"module": "amd",
+		"target": "es2017",
+		"module": "commonjs",
 		"moduleResolution": "node",
 		"jsx": "react",
 		"declaration": false,
 		"paths": {
 			"*": [ "src/*" ]
 		},
-		"lib": ["es2018", "dom"],
+		"lib": ["es2017", "dom"],
 		"experimentalDecorators": true
 	},
 	"compileOnSave": true,
@@ -21,8 +21,5 @@
 		"node_modules",
 		"vendor"
 	],
-	"types": [
-		"chrome",
-		"node"
-	]
+	"types": ["node"]
 }

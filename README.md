@@ -9,7 +9,7 @@ A simple project investigating React, Mongo, Express, and Mobx.
 - Run "npm ci" in root directory
 - Run "npm run start:database -- --new=true" to start the database and populate it with test data.
 - In a separate command line window run "npm run build:watch"
-- In a separate command line window run "node build/server.js"
+- In a separate command line window run "node build/server.js" OR in VS Code start the "Run Server" debug configuration
 - Open http://localhost:5000/build/ in your browser to see the client and interact with it
 - Open http://localhost:8080/task in your browser to see the server response
 

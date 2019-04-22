@@ -52,6 +52,7 @@
     "concurrently": "^4.1.0",
     "copy-webpack-plugin": "^5.0.2",
     "node-sass": "^4.11.0",
+    "ts-node": "^8.1.0",
     "tslint": "^5.15.0",
     "typescript": "^3.4.3",
     "webpack": "^4.29.6",

@@ -38,9 +38,6 @@ export class TaskController implements Controller {
 
 	private _getAllTasks(request: express.Request, response: express.Response): void {
 		this._taskModel.find().then((tasks) => {
-			console.log("Tasks:");
-			console.log(tasks);
-
 			response.send(tasks);
 		});
 	}

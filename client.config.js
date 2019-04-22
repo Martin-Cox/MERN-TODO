@@ -3,7 +3,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
 	context: path.resolve(__dirname, "./src/client"),
-	devtool: "cheap-module-source-map",
+	devtool: "cheap-module-eval-source-map",
 	entry: {
 		client: "./main/Index.tsx",
 	},
@@ -28,7 +28,7 @@ module.exports = {
 				}]
 			}, {
 				enforce: "pre",
-				test: /\.ts(x)?$/,
+				test: /\.js(x)?$/,
 				include: path.resolve(__dirname, "./src/client/*"),
 				use: [{
 					loader: "source-map-loader"

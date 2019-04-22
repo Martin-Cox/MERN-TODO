@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = {
 	context: path.resolve(__dirname, "./src/server"),
-	devtool: "cheap-module-source-map",
+	devtool: "cheap-module-eval-source-map",
 	entry: {
 		client: "./main/Main.ts",
 	},
@@ -23,7 +23,7 @@ module.exports = {
 				}]
 			}, {
 				enforce: "pre",
-				test: /\.ts(x)?$/,
+				test: /\.js(x)?$/,
 				include: path.resolve(__dirname, "./src/server/*"),
 				use: [{
 					loader: "source-map-loader"

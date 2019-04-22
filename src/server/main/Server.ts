@@ -20,7 +20,7 @@ export class Server {
 	 * @param controllers The controllers.
 	 * @param serverPort The port the server is running on.
 	 * @param databasePort The port the database is running on.
-	 * @param database The database.
+	 * @param database The database name.
 	 */
 	public constructor(controllers: Controller[], serverPort: number, databasePort: number, database: string) {
 		this._app = express();

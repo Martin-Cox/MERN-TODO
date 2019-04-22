@@ -1,11 +1,9 @@
 import boundMethod from "autobind-decorator";
 
-
 import * as React from "react";
 
 import { computed } from "mobx";
 import { observer } from "mobx-react";
-
 
 import { TasksStore } from "../store/TasksStore";
 import { Task } from "../components/Task";
@@ -15,6 +13,7 @@ export interface TasksProps {
 	store: TasksStore
 }
 
+/** A Tasks component. */
 @observer
 export class Tasks extends React.Component<TasksProps, TasksProps> {
 	@computed
@@ -70,6 +69,9 @@ export class Tasks extends React.Component<TasksProps, TasksProps> {
 		this.props.store.getTasks();
 	}
 
+	/**
+	 * Adds a task.
+	 */
 	@boundMethod
 	private _add(): void {
 		this.props.store.addTask();

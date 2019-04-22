@@ -1,6 +1,3 @@
-import boundMethod from "autobind-decorator";
-
-
 import * as React from "react";
 
 import { computed } from "mobx";
@@ -13,23 +10,28 @@ export interface TaskProps {
 	store: TaskStore
 }
 
+/** A Task component. */
 @observer
 export class Task extends React.Component<TaskProps, TaskProps> {
+	/** Gets the task title. */
 	@computed
 	private get _title(): string {
 		return this.props.store.title;
 	}
 
+	/** Gets the task description. */
 	@computed
 	private get _description(): string {
 		return this.props.store.description;
 	}
 
+	/** Gets the task owner. */
 	@computed
 	public get _owner(): string {
 		return this.props.store.owner;
 	}
 
+	/** Gets the task deadline. */
 	@computed
 	public get _deadline(): Date {
 		return this.props.store.deadline;

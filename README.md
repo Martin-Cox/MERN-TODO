@@ -14,34 +14,7 @@ A simple project investigating React, Mongo, Express, and Mobx.
 - Open http://localhost:8080/task in your browser to see the server response
 
 ## TODO
-- Update test data to be in "TODO" format
-	- Title
-	- Description
-	- AssignedTo
-	- Deadline
-- Add express endpoint that requests that TODO data
-- Add express endpoint that inserts that TODO data
-- Investigate express middleware
-	- Database connection
-	- Logging
-- Add client store that stores the TODO data
-- Add client component that displays the TODO data
-- Add client component that updates the TODO data
-
-## Flow
-
-- Initialize TasksStore
-	- It requests all the current tasks from the server
-	- Upon response it creates the tasks on the client
-- Click add button
-	- If over the limit, an error message is displayed, else...
-	- Create a new task without an id
-	- User fills out properties
-	- User clicks save button
-	- Task is sent to server. It responds with an id which is assigned to the task
-- Click delete button
-	- Task is removed from server, if successful it is also removed from TasksStore
-- Click edit button
-	- Task becomes editable
-	- User has to click save
-	- Updated task is sent to server
+- Implement Add functionality
+- Implement Edit functionality
+- Implement Delete functionality
+- Styling

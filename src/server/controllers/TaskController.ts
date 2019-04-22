@@ -10,9 +10,10 @@ export class TaskController implements Controller {
 	/** The root controller path. */
 	private readonly _path = "/task";
 
-	/** THe controller router. */
+	/** The controller router. */
 	private readonly _router: express.Router;
 
+	/** The task model. */
 	private _taskModel = TaskModel;
 
 	/**
@@ -36,12 +37,22 @@ export class TaskController implements Controller {
 		this._router.delete(this._path, (request: express.Request, response: express.Response) => this._deleteTask(request, response));
 	}
 
+	/**
+	 * Gets all tasks in the database.
+	 * @param request The request.
+	 * @param response The response.
+	 */
 	private _getAllTasks(request: express.Request, response: express.Response): void {
 		this._taskModel.find().then((tasks) => {
 			response.send(tasks);
 		});
 	}
 
+	/**
+	 * Adds a task to the database and responds with the ID of the added task.
+	 * @param request The request.
+	 * @param response The response.
+	 */
 	private _addTask(request: express.Request, response: express.Response): void {
 		const taskData = request.body as Task;
 		const task = new TaskModel(taskData);
@@ -50,6 +61,11 @@ export class TaskController implements Controller {
 		});
 	}
 
+	/**
+	 * Deletes a task from the database.
+	 * @param request The request.
+	 * @param response The response.
+	 */
 	private _deleteTask(request: express.Request, response: express.Response): void {
 		const id = request.body.id;
 		this._taskModel.findByIdAndDelete(id).then((success) => {
@@ -57,6 +73,11 @@ export class TaskController implements Controller {
 		});
 	}
 
+	/**
+	 * Updates a task in the database.
+	 * @param request The request.
+	 * @param response The response.
+	 */
 	private _updateTask(request: express.Request, response: express.Response): void {
 		const id = request.body.id;
 		const taskData = request.body as Task;

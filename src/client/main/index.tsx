@@ -3,16 +3,12 @@ import * as ReactDOM from "react-dom";
 
 import { BrowserRouter as  Router } from "react-router-dom";
 
-import { Hello } from "../components/Hello";
-import { CatFact } from "../components/CatFact";
-import { CounterStore } from "../store/CounterStore";
-import { Counter } from "../components/Counter";
+import { TasksStore } from "../store/TasksStore";
+import { Tasks } from "../components/Tasks";
 
 ReactDOM.render(
 	<Router>
-		<Hello name="Martin"></Hello>
-		<CatFact time="" fact=""></CatFact>
-		<Counter store={new CounterStore()}></Counter>
+		<Tasks store={new TasksStore()}></Tasks>>
 	</Router>,
 	document.getElementById("example")
 );

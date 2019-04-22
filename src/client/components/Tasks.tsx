@@ -8,7 +8,8 @@ import { observer } from "mobx-react";
 
 
 import { TasksStore } from "../store/TasksStore";
-import { Task } from "../../common/definitions/Task";
+import { Task } from "../components/Task";
+import { TaskStore } from "client/store/TaskStore";
 
 export interface TasksProps {
 	store: TasksStore
@@ -17,7 +18,7 @@ export interface TasksProps {
 @observer
 export class Tasks extends React.Component<TasksProps, TasksProps> {
 	@computed
-	private get _tasks(): Task[] {
+	private get _tasks(): TaskStore[] {
 		return this.props.store.tasks;
 	}
 
@@ -38,15 +39,26 @@ export class Tasks extends React.Component<TasksProps, TasksProps> {
 			addTaskArea = <button onClick={this._add}>+</button>;
 		}
 
+		const renderedTasks = this._tasks.map((taskStore, index) => {
+			return <Task store={taskStore} key={index}></Task>
+		});
+
 		return (
 			<div className="tasks">
-				<div className="header">
-					<p>Title</p>
-					<p>Description</p>
-					<p>Owner</p>
-					<p>Deadline</p>
-				</div>
-				{addTaskArea}
+				<table>
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Description</th>
+							<th>Owner</th>
+							<th>Deadline</th>
+						</tr>
+					</thead>
+					<tbody>
+						{renderedTasks}
+					</tbody>
+				</table>
+			{addTaskArea}
 			</div>
 		)
 	}

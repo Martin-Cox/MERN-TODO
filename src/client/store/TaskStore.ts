@@ -17,9 +17,15 @@ export class TaskStore implements Task {
 	@observable
 	private _deadline: Date;
 
-	private _deleteTaskCallback: (task: Task) => void;
+	private _deleteTaskCallback: (task: TaskStore) => void;
 
-	constructor(deleteTaskCallback: (task: Task) => void) {
+	constructor(properties: Partial<Task>, deleteTaskCallback: (task: TaskStore) => void) {
+		this._id = properties.id;
+		this.title = properties.title;
+		this.description = properties.description;
+		this.owner = properties.owner;
+		this.deadline = properties.deadline;
+
 		this._deleteTaskCallback = deleteTaskCallback;
 	}
 
